@@ -1,0 +1,141 @@
+.sidebar { 
+    width: 290px; 
+    background: linear-gradient(
+        65deg,
+        #edf6fd,
+        #FBFDFF
+      );
+      margin: 70px;
+      border-radius: 50px;
+      box-shadow: 0 4px 20px rgba(91, 163, 202, 0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+      transition: width .4s ease;
+
+      /* min-width: 230px;
+      max-width: 290px; */
+}
+
+.sidebar.collapsed { 
+  width: 75px; 
+  background: none;
+    margin: 70px;
+    border-radius: 50px;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+
+    /* min-width: 75px;
+    max-width: 75px; */
+}
+
+.button-text {
+  display: inline-block;
+  opacity: 1;
+  width: auto;
+  overflow: hidden;
+  transition: opacity .4s ease;
+}
+
+.sidebar.collapsed .button-text {
+  /* display: none; */
+  opacity: 0;
+}
+
+.sidebar-header{ 
+  
+  width: 100%;
+  padding-top: 40px;
+  padding-right: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.sidebar-header.collapsed {
+  width: 100%;
+  padding-top: 40px;
+  padding-right: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; 
+}
+
+.sidebar-logo {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.sidebar-button {
+  display: flex;
+  width: 80%;
+  height: 42px;
+  /* color: #4A8CC1; */
+  color: #565656;
+  background-color: #FCFDFF;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(46, 136, 238, 0.15);
+  border: none;
+  padding-left: 15px;
+  align-items: center;
+  justify-content: flex-start;
+
+  font-size: 16px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+
+}
+
+.sidebar-button:hover {
+  background-color: #EAF3FF;
+  box-shadow: 0 4px 20px rgba(8, 111, 229, 0.30);
+  gap: 5px;
+}
+
+.sidebar-button.active { 
+  display: flex;
+  width: 75%;
+  height: 42px;
+  color: #4A8CC1;
+  background: linear-gradient(
+    65deg,
+    #E9F8FF,
+    #C2E5FF
+  );
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(8, 111, 229, 0.25);
+  border: none;
+  border-right: 7px solid #58B4FF;
+  padding-left: 15px;
+  align-items: center;
+  justify-content: flex-start;
+
+  font-size: 16px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+
+  cursor: pointer;
+}
+
+.sidebar-button.active:hover {
+  box-shadow: 0 4px 20px rgba(8, 111, 229, 0.30);
+  gap: 5px;
+}
+
+.button-icon-inactive {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
