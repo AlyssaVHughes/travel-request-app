@@ -5,13 +5,12 @@
         #edf6fd,
         #FBFDFF
       );
-      margin: 70px;
-      border-radius: 50px;
+      border-radius: 45px;
       box-shadow: 0 4px 20px rgba(91, 163, 202, 0.15);
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 25px;
+      gap: 10px;
       transition: width .4s ease;
 
       /* min-width: 230px;
@@ -21,8 +20,7 @@
 .sidebar.collapsed { 
   width: 75px; 
   background: none;
-    margin: 70px;
-    border-radius: 50px;
+    border-radius: 45px;
     box-shadow: none;
     display: flex;
     flex-direction: column;
@@ -78,8 +76,9 @@
   width: 80%;
   height: 42px;
   /* color: #4A8CC1; */
-  color: #565656;
+  color: #466D9D;
   background-color: #FCFDFF;
+  /* background-color: #FFFFFF; */
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(46, 136, 238, 0.15);
   border: none;
@@ -87,13 +86,14 @@
   align-items: center;
   justify-content: flex-start;
 
-  font-size: 16px;
+  font-size: 14px;
   font-family: "Ubuntu", sans-serif;
   font-weight: 500;
   font-style: normal;
 
   cursor: pointer;
-  transition: background-color 0.4s ease;
+  transition: background-color 0.4s ease,
+              box-shadow 0.4s ease;
 
 }
 
@@ -105,7 +105,7 @@
 
 .sidebar-button.active { 
   display: flex;
-  width: 75%;
+  width: 80%;
   height: 42px;
   color: #4A8CC1;
   background: linear-gradient(
@@ -121,7 +121,7 @@
   align-items: center;
   justify-content: flex-start;
 
-  font-size: 16px;
+  font-size: 14px;
   font-family: "Ubuntu", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -137,5 +137,24 @@
 .button-icon-inactive {
   width: 30px;
   height: 30px;
-  margin-right: 5px;
+  margin-right: 7px;
+}
+
+.approval-notif {
+  margin-left: 10px;
+  padding-top: 3.5px;
+  box-sizing: border-box;
+  width: 20px; 
+  height: 20px;
+  background-color: #1673ff;
+  color: #FFFFFF;
+  border-radius: 20px;
+
+  font-size: 12px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+}
+
+.approval-notif.collapsed {
+display: none;
 }

@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/app.css">
     <link rel="stylesheet" href="../CSS/side_menu.css">
+    <link rel="stylesheet" href="../CSS/header.css">  
+    <link rel="stylesheet" href="../CSS/dashboard.css">  
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
     <script src="../JS/navigation.js" defer></script>
+    <script src="../JS/pages/dashboard.js" defer></script>
+
     <title>Travel Request App</title>
 </head>
 <body>
@@ -24,7 +28,7 @@
             <button class="sidebar-button active"> <img src="../images/icons/quickview_icon.png" class= button-icon-inactive> <span class="button-text">Home</span></button>
             <button class="sidebar-button"> <img src="../images/icons/new_icon.png" class= button-icon-inactive> <span class="button-text">New Request</span></button>
             <button class="sidebar-button"> <img src="../images/icons/dashboard_icon.png" class= button-icon-inactive> <span class="button-text">Request Dashboard</span></button>
-            <button class="sidebar-button"> <img src="../images/icons/approval_icon.png" class= button-icon-inactive> <span class="button-text">Approvals</span></button>
+            <button class="sidebar-button"> <img src="../images/icons/approval_icon.png" class= button-icon-inactive> <span class="button-text">Approvals</span> <div class="approval-notif"> 2 </div></button>
             <button class="sidebar-button"> <img src="../images/icons/budget_icon.png" class= button-icon-inactive><span class="button-text">My Budget</span></button>
 
         </div>
@@ -32,14 +36,142 @@
         <div class="right-content">
 
             <div class="header">
-                <div class="app-logo">
-                    <img src="../Images/Icons/app_logo.png" alt="Logo" class="logo">
-                </div>
-                <div class="header-right">
-                    <img src="../images/icons/user_icon.png" alt="User Icon" class="user-icon">
-                    <span class="user-name">John Doe</span>
+
+                <div class="header-logo">
+                    <img src="../Images/Icons/app_logo.png" alt="Logo" class="app-logo">
+                    <h1 class="app-name">PLACEHOLDER</h1>
                 </div>
 
+                <div class="signIn">
+                    <span class="user-name">User Name</span>
+                    <img src="../images/icons/profile_icon.png" alt="User Icon" class="user-icon">
+                </div>
+
+            </div>
+
+            <div class="dashboard-area"> 
+
+                <div class="dashboard-header"> 
+                    
+                    <div class="tab-area"> 
+                        <div class="tab active"> <span class="tab-text">All Requests</span> </div>
+                        <div class="tab"> <span class="tab-text">Upcoming Requests</span> </div>
+                        <div class="tab"> <span class="tab-text">Past Requests</span> </div>
+                    </div>
+
+                    <button class="export-dashboard"><img class="filter-arrow1" src="../Images/Icons/export_icon.png">  Export</button>
+
+                </div>
+
+                <div class="table-area"> 
+                    <div class="filter-area">
+                        <div class="search-container">
+                            <img src="../Images/Icons/search_icon.png" alt="Search" class="search-icon">
+                            <input
+                                type="text"
+                                class="search-input"
+                                placeholder="Search requests...">
+                        </div>
+                        <button class="filter-button"><img class="filter-arrow1" src="../Images/Icons/down_arrow.png">  Name</button>
+                        <button class="filter-button"><img class="filter-arrow1" src="../Images/Icons/down_arrow.png">  Start Date</button>
+                        <button class="filter-button"><img class="filter-arrow1" src="../Images/Icons/down_arrow.png">  End Date</button>
+                        <button class="filter-button"><img class="filter-arrow1" src="../Images/Icons/down_arrow.png">  Estimated Cost</button>
+                        <button class="filter-button"><img class="filter-arrow1" src="../Images/Icons/down_arrow.png">  Request Status</button>
+                    </div>
+
+                    <div class="request-table-container">
+
+                        <table class="request-table">
+                    
+                            <thead>
+                                <tr>
+                                    <th>Request ID</th>
+                                    <th>Requestor</th>
+                                    <th>Destination</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Estimated Cost</th>
+                                    <th>Status</th>
+                                    <th>Purpose For Travel</th>
+                                </tr>
+                            </thead>
+                    
+                            <tbody>
+                    
+                                <tr>
+                                    <td>TR-001TR-001TR-001TR-001TR-001</td>
+                                    <td>John Doe</td>
+                                    <td>New York, NY</td>
+                                    <td>08/15/2026</td>
+                                    <td>08/18/2026</td>
+                                    <td>$1,200</td>
+                                    <td>    
+                                        <div class="status">
+                                        <img src="../Images/Icons/yellow_status.png" alt="" class="status-icon">
+                                        <span>Approved</span>
+                                        </div>
+                                    </td>
+                                    <td>Business MeetingBusiness MeetingBusiness MeetingBusiness MeetingvvBusiness MeetingBusiness MeetingBusiness MeetingBusiness Meeting</td>
+                                    <!-- <td>
+                                        <button class="view-button">View</button>
+                                    </td> -->
+                                </tr>
+                    
+                                <tr>
+                                    <td>TR-002</td>
+                                    <td>Jane Smith</td>
+                                    <td>Chicago, IL</td>
+                                    <td>08/20/2026</td>
+                                    <td>08/23/2026</td>
+                                    <td>$1,200</td>
+                                    <td>    
+                                        <div class="status">
+                                        <img src="../Images/Icons/red_status.png" alt="" class="status-icon">
+                                        <span>Approved</span>
+                                        </div>
+                                    </td>
+                                    <td>Conference</td>
+                                    <!-- <td>
+                                        <button class="view-button">View</button>
+                                    </td> -->
+                                </tr>
+
+                                <tr>
+                                    <td>TR-002</td>
+                                    <td>Jane Smith</td>
+                                    <td>Chicago, IL</td>
+                                    <td>08/20/2026</td>
+                                    <td>08/23/2026</td>
+                                    <td>$1,200</td>
+                                    <td>    
+                                        <div class="status">
+                                        <img src="../Images/Icons/green_status.png" alt="" class="status-icon">
+                                        <span>Approved</span>
+                                        </div>
+                                    </td>
+                                    <td>Conference</td>
+                                    <!-- <td>
+                                        <button class="view-button">View</button>
+                                    </td> -->
+                                </tr>
+                    
+                            </tbody>
+                    
+                        </table>
+                    
+                    </div>
+
+                </div>
+
+                <div class="pagination-area"> 
+                    <button class="pagination-button"><img src="../Images/Icons/left_previous.png" alt="" class="left"> </button>
+                    <button class="pagination-button active">1</button>
+                    <button class="pagination-button">2</button>
+                    <button class="pagination-button">3</button>
+                    <button class="pagination-button"><img src="../Images/Icons/right_next.png" alt="" class="left"> </button>
+                </div>
+
+            </div>
 
         </div>
 
