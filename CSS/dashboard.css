@@ -262,11 +262,14 @@
 .pagination-button.active { 
     padding: 7px 12px;
     border-radius: 7px;
-    border: 1px solid #008CFF;
+    /* border: 1px solid #008CFF;     */
+    border: 1px solid #2c53ff;
     cursor: pointer;
     color: #466D9D;
-    background-color: #E3F9FF;
-    box-shadow: inset 0px 0px 6px #4FA1FF;
+    /* background-color: #E3F9FF; */
+    background-color: #e3f1ff;
+    /* box-shadow: inset 0px 0px 6px #4FA1FF; */
+    box-shadow: inset 0px 0px 6px #1673ff;
     transition: background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
