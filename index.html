@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
+    <script src="../JS/sampleData.js" defer></script>
     <script src="../JS/navigation.js" defer></script>
     <script src="../JS/pages/dashboard.js" defer></script>
 
@@ -59,11 +60,11 @@
                         <div class="tab"> <span class="tab-text">Past Requests</span> </div>
                     </div>
 
-                    <button class="export-dashboard"><img class="filter-arrow1" src="../Images/Icons/export_icon.png">  Export</button>
 
                 </div>
 
                 <div class="table-area"> 
+                    <div class ="table-header"> 
                     <div class="filter-area">
                         <div class="search-container">
                             <img src="../Images/Icons/search_icon.png" alt="Search" class="search-icon">
@@ -72,11 +73,70 @@
                                 class="search-input"
                                 placeholder="Search requests...">
                         </div>
-                        <button class="filter-button"><img class="filter-arrow1" src="../Images/Icons/down_arrow.png">  Name</button>
-                        <button class="filter-button"><img class="filter-arrow1" src="../Images/Icons/down_arrow.png">  Start Date</button>
-                        <button class="filter-button"><img class="filter-arrow1" src="../Images/Icons/down_arrow.png">  End Date</button>
-                        <button class="filter-button"><img class="filter-arrow1" src="../Images/Icons/down_arrow.png">  Estimated Cost</button>
-                        <button class="filter-button"><img class="filter-arrow1" src="../Images/Icons/down_arrow.png">  Request Status</button>
+
+                        <!-- <div class="filter-menu">
+
+                            <button class="filter-button">Name <img class="filter-arrow1" src="../Images/Icons/down_arrow.png"></button>
+
+                            <div class="filter-popup">
+                                <button>Approved</button>
+                                <button>Pending</button>
+                                <button>Rejected</button>
+                                <button>Clear Filter</button>
+                            </div>
+
+                        </div> -->
+
+                        <div class="filter-menu">
+
+                            <button class="filter-button">Start Date <img class="filter-arrow1" src="../Images/Icons/down_arrow.png"></button>
+
+                            <div class="filter-popup">
+                                <button class="status-filter" data-filter="startDate" data-value="current">Current Date</button>
+                            </div>
+
+                        </div>
+
+                        <div class="filter-menu">
+
+                            <button class="filter-button">End Date <img class="filter-arrow1" src="../Images/Icons/down_arrow.png"></button>
+
+                            <div class="filter-popup">
+                                <button class="status-filter" data-filter="endDate" data-value="current">Current Date</button>
+                            </div>
+
+                        </div>
+
+                        <div class="filter-menu">
+
+                            <button class="filter-button">Estimated Cost <img class="filter-arrow1" src="../Images/Icons/down_arrow.png"></button>
+
+                            <div class="filter-popup">
+                                <button class="status-filter" data-filter="estimatedCost" data-value="under">Less than $10,000</button>
+                                <button class="status-filter" data-filter="estimatedCost" data-value="over">More than $10,000</button>
+                            </div>
+
+                        </div>
+
+                        <div class="filter-menu">
+
+                            <button class="filter-button">Request Status <img class="filter-arrow1" src="../Images/Icons/down_arrow.png"></button>
+
+                            <div class="filter-popup">
+
+                                <button class="status-filter" data-filter="status" data-value="New Request">New Request</button>
+                                <button class="status-filter" data-filter="status" data-value="Pending Approval">Pending Approval</button>
+                                <button class="status-filter" data-filter="status" data-value="Approved">Approved</button>
+                                <button class="status-filter" data-filter="status" data-value="Rejected">Rejected</button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button id="reset-button" class="reset-filters"><img class="filter-arrow1" src="../Images/Icons/refresh_icon.png">  Reset Filters</button>
+
                     </div>
 
                     <div class="request-table-container">
@@ -96,65 +156,7 @@
                                 </tr>
                             </thead>
                     
-                            <tbody>
-                    
-                                <tr>
-                                    <td>TR-001TR-001TR-001TR-001TR-001</td>
-                                    <td>John Doe</td>
-                                    <td>New York, NY</td>
-                                    <td>08/15/2026</td>
-                                    <td>08/18/2026</td>
-                                    <td>$1,200</td>
-                                    <td>    
-                                        <div class="status">
-                                        <img src="../Images/Icons/yellow_status.png" alt="" class="status-icon">
-                                        <span>Approved</span>
-                                        </div>
-                                    </td>
-                                    <td>Business MeetingBusiness MeetingBusiness MeetingBusiness MeetingvvBusiness MeetingBusiness MeetingBusiness MeetingBusiness Meeting</td>
-                                    <!-- <td>
-                                        <button class="view-button">View</button>
-                                    </td> -->
-                                </tr>
-                    
-                                <tr>
-                                    <td>TR-002</td>
-                                    <td>Jane Smith</td>
-                                    <td>Chicago, IL</td>
-                                    <td>08/20/2026</td>
-                                    <td>08/23/2026</td>
-                                    <td>$1,200</td>
-                                    <td>    
-                                        <div class="status">
-                                        <img src="../Images/Icons/red_status.png" alt="" class="status-icon">
-                                        <span>Approved</span>
-                                        </div>
-                                    </td>
-                                    <td>Conference</td>
-                                    <!-- <td>
-                                        <button class="view-button">View</button>
-                                    </td> -->
-                                </tr>
-
-                                <tr>
-                                    <td>TR-002</td>
-                                    <td>Jane Smith</td>
-                                    <td>Chicago, IL</td>
-                                    <td>08/20/2026</td>
-                                    <td>08/23/2026</td>
-                                    <td>$1,200</td>
-                                    <td>    
-                                        <div class="status">
-                                        <img src="../Images/Icons/green_status.png" alt="" class="status-icon">
-                                        <span>Approved</span>
-                                        </div>
-                                    </td>
-                                    <td>Conference</td>
-                                    <!-- <td>
-                                        <button class="view-button">View</button>
-                                    </td> -->
-                                </tr>
-                    
+                            <tbody id="request-table-body">                    
                             </tbody>
                     
                         </table>
@@ -164,11 +166,9 @@
                 </div>
 
                 <div class="pagination-area"> 
-                    <button class="pagination-button"><img src="../Images/Icons/left_previous.png" alt="" class="left"> </button>
-                    <button class="pagination-button active">1</button>
-                    <button class="pagination-button">2</button>
-                    <button class="pagination-button">3</button>
-                    <button class="pagination-button"><img src="../Images/Icons/right_next.png" alt="" class="left"> </button>
+                    <button id="previous-page" class="pagination-button"><img src="../Images/Icons/left_previous.png" alt="" class="left"> </button>
+                    <p id="page-number" class="pagination-place">1 of 1</p>
+                    <button id="next-page" class="pagination-button"><img src="../Images/Icons/right_next.png" alt="" class="left"> </button>
                 </div>
 
             </div>
