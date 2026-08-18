@@ -92,9 +92,9 @@
                             <button class="filter-button">Start Date <img class="filter-arrow1" src="../Images/Icons/down_arrow.png"></button>
 
                             <div class="filter-popup">
-                                <button class="status-filter" data-filter="startDate" data-value="current">Current Date</button>
-                                <button class="status-filter" data-filter="startDate" data-value="before">Before Current Date</button>
-                                <button class="status-filter" data-filter="startDate" data-value="after">After Current Date</button>
+                                <button class="status-filter" data-filter="startDate" data-value="startCurrent">Current Date</button>
+                                <button class="status-filter" data-filter="startDate" data-value="startBefore">Before Current Date</button>
+                                <button class="status-filter" data-filter="startDate" data-value="startAfter">After Current Date</button>
                             </div>
 
                         </div>
@@ -104,9 +104,9 @@
                             <button class="filter-button">End Date <img class="filter-arrow1" src="../Images/Icons/down_arrow.png"></button>
 
                             <div class="filter-popup">
-                                <button class="status-filter" data-filter="endDate" data-value="current">Current Date</button>
-                                <button class="status-filter" data-filter="endDate" data-value="before">Before Current Date</button>
-                                <button class="status-filter" data-filter="endDate" data-value="after">After Current Date</button>
+                                <button class="status-filter" data-filter="endDate" data-value="endCurrent">Current Date</button>
+                                <button class="status-filter" data-filter="endDate" data-value="endBefore">Before Current Date</button>
+                                <button class="status-filter" data-filter="endDate" data-value="endAfter">After Current Date</button>
                             </div>
 
                         </div>
@@ -169,10 +169,54 @@
 
                 </div>
 
-                <div class="pagination-area"> 
-                    <button id="previous-page" class="pagination-button"><img src="../Images/Icons/left_previous.png" alt="" class="left"> </button>
-                    <p id="page-number" class="pagination-place">1 of 1</p>
-                    <button id="next-page" class="pagination-button"><img src="../Images/Icons/right_next.png" alt="" class="left"> </button>
+                <div class="dash-footer"> 
+
+                    <div class="filter-tag-area">
+                        
+                        <div class="start-filter-tag" id="start-date-tag">
+                            <p id="start-date-tag-text"></p>
+                            <img 
+                                class="x-icon" 
+                                src="../Images/Icons/x_icon.png"
+                                alt="Remove filter"
+                            >
+                        </div>
+
+                        <div class="end-filter-tag" id="end-date-tag">
+                            <p id="end-date-tag-text"></p>
+                            <img 
+                                class="x-icon" 
+                                src="../Images/Icons/x_icon.png"
+                                alt="Remove filter"
+                            >
+                        </div>
+
+                        <div class="cost-filter-tag" id="cost-tag">
+                            <p id="cost-tag-text"></p>
+                            <img 
+                                class="x-icon" 
+                                src="../Images/Icons/x_icon.png"
+                                alt="Remove filter"
+                            >
+                        </div>
+
+                        <div class="status-filter-tag" id="status-tag">
+                            <p id="status-tag-text"></p>
+                            <img 
+                                class="x-icon" 
+                                src="../Images/Icons/x_icon.png"
+                                alt="Remove filter"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="pagination-area"> 
+                        <button id="previous-page" class="pagination-button"><img src="../Images/Icons/left_previous.png" alt="" class="left"> </button>
+                        <p id="page-number" class="pagination-place">1 of 1</p>
+                        <button id="next-page" class="pagination-button"><img src="../Images/Icons/right_next.png" alt="" class="left"> </button>
+                    </div>
+
                 </div>
 
             </div>

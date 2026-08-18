@@ -247,6 +247,13 @@
 }
 
 /* PAGINATION STYLES */
+.dash-footer{ 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+}
 
 .pagination-area{ 
     display: flex;
@@ -254,7 +261,6 @@
     justify-content: flex-end;
     align-items: center;
     gap: 6px;
-    padding-top: 15px;
 }
 
 .left{ 
@@ -353,3 +359,141 @@
     background-color: #f2f7fc;
 }
 
+.filter-tag-area{ 
+    display: flex; 
+    align-items: center;
+    flex-direction: row;
+    gap: 12px;
+}
+
+#end-date-tag {
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* border: .5px solid #2c53ff; */
+    border: none;
+    cursor: pointer;
+    background-color: #e3f1ff;
+    box-shadow: inset 0px 0px 6px #1673ff;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    color: #466D9D;
+    border-radius: 50px;
+    height: 20px;
+    padding: 2px 10px;
+    gap: 8px;
+    transition: box-shadow 0.4s ease,
+                background-color 0.4s ease;
+
+    font-size: 10px;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 1.3px;
+    margin: 0;
+                
+}
+
+#start-date-tag {
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* border: .5px solid #2c53ff; */
+    border: none;
+    cursor: pointer;
+    background-color: #e3f1ff;
+    box-shadow: inset 0px 0px 6px #1673ff;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    color: #466D9D;
+    border-radius: 50px;
+    height: 20px;
+    padding: 2px 10px;
+    gap: 8px;
+    transition: box-shadow 0.4s ease,
+                background-color 0.4s ease;
+
+    font-size: 10px;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 1.3px;
+    margin: 0;
+                
+}
+
+#cost-tag {
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* border: .5px solid #2c53ff; */
+    border: none;
+    cursor: pointer;
+    background-color: #e3f1ff;
+    box-shadow: inset 0px 0px 6px #1673ff;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    color: #466D9D;
+    border-radius: 50px;
+    height: 20px;
+    padding: 2px 10px;
+    gap: 8px;
+    transition: box-shadow 0.4s ease,
+                background-color 0.4s ease;
+
+    font-size: 10px;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 1.3px;
+    margin: 0;
+                
+}
+
+#status-tag {
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* border: .5px solid #2c53ff; */
+    border: none;
+    cursor: pointer;
+    background-color: #e3f1ff;
+    box-shadow: inset 0px 0px 6px #1673ff;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    color: #466D9D;
+    border-radius: 50px;
+    height: 20px;
+    padding: 2px 10px;
+    gap: 8px;
+    transition: box-shadow 0.4s ease,
+                background-color 0.4s ease;
+
+    font-size: 10px;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 1.3px;
+    margin: 0;
+                
+}
+
+#end-date-tag:hover{ 
+    background-color: #c8deff;
+    cursor: pointer;
+}
+
+#start-date-tag:hover{ 
+    background-color: #c8deff;
+    cursor: pointer;
+}
+
+#cost-tag:hover{ 
+    background-color: #c8deff;
+    cursor: pointer;
+}
+
+#status-tag:hover{ 
+    background-color: #c8deff;
+    cursor: pointer;
+}
