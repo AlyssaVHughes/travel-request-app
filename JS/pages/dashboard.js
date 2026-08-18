@@ -50,6 +50,18 @@ filterMenus.forEach(menu => {
 //filtering requests
 const statusFilter = document.querySelectorAll(".status-filter");
 
+const startDateTag = document.querySelector("#start-date-tag");
+const startDateTagText = document.querySelector("#start-date-tag-text")
+
+const endDateTag = document.querySelector("#end-date-tag");
+const endDateTagText = document.querySelector("#end-date-tag-text")
+
+const CostTag = document.querySelector("#cost-tag");
+const CostTagText = document.querySelector("#cost-tag-text")
+
+const StatusTag = document.querySelector("#status-tag");
+const StatusTagText = document.querySelector("#status-tag-text")
+
 statusFilter.forEach(function(option) {
 
     option.addEventListener("click", function() {
@@ -58,6 +70,56 @@ statusFilter.forEach(function(option) {
         const filterValue = option.dataset.value;
 
         applyFilter(filterType, filterValue);
+
+        if (filterValue === "startCurrent") { 
+            startDateTagText.textContent =  "Start - Current Day";
+            startDateTag.style.display = "flex";
+        }
+        if (filterValue === "startBefore") { 
+            startDateTagText.textContent = "Start - Before Current Day";
+            startDateTag.style.display = "flex";
+        }
+        if (filterValue === "startAfter") { 
+            startDateTagText.textContent = "Start - After Current Day";
+            startDateTag.style.display = "flex";
+        }
+        if (filterValue === "endCurrent") { 
+            endDateTagText.textContent = "End - Current Day";
+            endDateTag.style.display = "flex"
+        }
+        if (filterValue === "endBefore") { 
+            endDateTagText.textContent = "End - Before Current Day";
+            endDateTag.style.display = "flex"
+        }
+        if (filterValue === "endAfter") { 
+            endDateTagText.textContent = "End - After Current Day";
+            endDateTag.style.display = "flex"
+        }
+        if (filterValue === "over") { 
+            CostTagText.textContent = "Cost - More Than $10,000";
+            CostTag.style.display = "flex"
+        }
+        if (filterValue === "under") { 
+            CostTagText.textContent = "Cost - Less Than $10,000";
+            CostTag.style.display = "flex"
+        }
+        if (filterValue === "New Request") { 
+            StatusTagText.textContent = "Status - New Request";
+            StatusTag.style.display = "flex"
+        }
+        if (filterValue === "Pending Approval") { 
+            StatusTagText.textContent = "Status - Pending Approval";
+            StatusTag.style.display = "flex"
+        }
+        if (filterValue === "Approved") { 
+            StatusTagText.textContent = "Status - Approved";
+            StatusTag.style.display = "flex"
+        }
+        if (filterValue === "Rejected") { 
+            StatusTagText.textContent = "Status - Rejected";
+            StatusTag.style.display = "flex"
+        }
+
 
     });
 
@@ -107,13 +169,13 @@ function filterByEndDate(endDate) {
 
         const requestEndDate = request.endDate
 
-        if (endDate === "before") {
+        if (endDate === "endBefore") {
             return requestEndDate < todayString; 
         } 
-        if (endDate === "after") {
+        if (endDate === "endAfter") {
             return requestEndDate > todayString; 
         }
-        if (endDate === "current") {
+        if (endDate === "endCurrent") {
             return requestEndDate === todayString; 
         }
     }); 
@@ -135,13 +197,13 @@ function filterByStartDate(startDate) {
 
         const requestStartDate = request.startDate
 
-        if (startDate === "before") {
+        if (startDate === "startBefore") {
             return requestStartDate < todayString; 
         } 
-        if (startDate === "after") {
+        if (startDate === "startAfter") {
             return requestStartDate > todayString; 
         }
-        if (startDate === "current") {
+        if (startDate === "cstartCurrent") {
             return requestStartDate === todayString; 
         }
     }); 
@@ -166,9 +228,13 @@ function filterByCost(cost) {
     displayPage();
 }
 
-
+//reset filterbutton
 const resetButton = document.querySelector("#reset-button");
 resetButton.addEventListener("click", () => {
+    startDateTag.style.display = "none";
+    endDateTag.style.display = "none";
+    CostTag.style.display = "none";
+    StatusTag.style.display = "none"
     filteredRequests = [...requests];
     currentPage = 1;
     displayPage();
