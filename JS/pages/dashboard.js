@@ -47,6 +47,13 @@ filterMenus.forEach(menu => {
 
 });
 
+let activeFilters = {
+    status: null, 
+    startDate: null, 
+    endDate: null, 
+    estimatedCost: null
+};
+
 //filtering requests
 const statusFilter = document.querySelectorAll(".status-filter");
 
@@ -60,7 +67,7 @@ const CostTag = document.querySelector("#cost-tag");
 const CostTagText = document.querySelector("#cost-tag-text")
 
 const StatusTag = document.querySelector("#status-tag");
-const StatusTagText = document.querySelector("#status-tag-text")
+const StatusTagText = document.querySelector("#status-tag-text");
 
 statusFilter.forEach(function(option) {
 
@@ -125,108 +132,226 @@ statusFilter.forEach(function(option) {
 
 });
 
+const filterTags = document.querySelectorAll(".filter-tag");
+filterTags.forEach(function(tag) {
+
+    const xIcon = tag.querySelector(".x-icon");
+
+    xIcon.addEventListener("click", function() {
+
+        const tagFilterType = tag.dataset.filter;
+
+        if(tagFilterType === "status") {
+            activeFilters.status = null; 
+            StatusTag.style.display = "none"
+        }
+
+        if(tagFilterType === "estimatedCost") { 
+            activeFilters.estimatedCost = null;
+            CostTag.style.display = "none"
+        }
+
+        if(tagFilterType === "startDate") {
+            activeFilters.startDate = null;
+            startDateTag.style.display = "none"
+        }
+
+        if(tagFilterType === "endDate") { 
+            activeFilters.endDate = null;
+            endDateTag.style.display = "none"
+        }
+        applyAllFilters();
+    });
+
+});
+
 function applyFilter(filterType, filterValue) {
 //if its status, run the filter by status function and pass the value of the button (pending, approved, rejected) to it
 
-    if (filterType === "status") {
-        filterByStatus(filterValue);
-    }
-    if (filterType === "endDate") {
-        filterByEndDate(filterValue);
-    }
-    if (filterType === "startDate") {
-        filterByStartDate(filterValue);
-    }
-    if (filterType === "estimatedCost") {
-        filterByCost(filterValue);
-    }
+    activeFilters[filterType] = filterValue;
+
+    applyAllFilters();
+
+    //old applyfilterlogic
+
+    // if (filterType === "status") {
+    //     filterByStatus(filterValue);
+    // }
+    // if (filterType === "endDate") {
+    //     filterByEndDate(filterValue);
+    // }
+    // if (filterType === "startDate") {
+    //     filterByStartDate(filterValue);
+    // }
+    // if (filterType === "estimatedCost") {
+    //     filterByCost(filterValue);
+    // }
 
 }
 
-function filterByStatus(status) {
+function applyAllFilters() {
+
+    const today = new Date();
+    const todayString =
+        today.getFullYear() + "-" +
+        String(today.getMonth() + 1).padStart(2, "0") + "-" +
+        String(today.getDate()).padStart(2, "0");
 
     filteredRequests = requests.filter(function(request) {
-        return request.status === status;
+
+        // Status filter
+        if (activeFilters.status !== null) {
+            if (request.status !== activeFilters.status) {
+                return false;
+            }
+        }
+
+        // Cost filter
+        if (activeFilters.estimatedCost !== null) {
+
+            if (activeFilters.estimatedCost === "under") {
+                if (request.estimatedCost >= 10000) {
+                    return false;
+                }
+            }
+
+            if (activeFilters.estimatedCost === "over") {
+                if (request.estimatedCost < 10000) {
+                    return false;
+                }
+            }
+        }
+
+        if (activeFilters.startDate !== null) {
+            const requestStartDate = request.startDate
+
+            if (activeFilters.startDate === "startBefore") {
+                if (requestStartDate >= todayString) {
+                    return false;
+                }
+            } 
+            if (activeFilters.startDate === "startAfter") {
+                if (requestStartDate <= todayString) {
+                    return false;
+                } 
+            }
+            if (activeFilters.startDate === "startCurrent") {
+                if (requestStartDate !== todayString) {
+                    return false;
+                }
+            }
+
+        }
+
+        if (activeFilters.endDate !== null) {
+            const requestEndDate = request.endDate
+
+            if (activeFilters.endDate === "endBefore") { 
+                if (requestEndDate >= todayString) {
+                    return false;
+                }
+            }
+            if (activeFilters.endDate === "endAfter") { 
+                if (requestEndDate <= todayString) { 
+                    return false;
+                }
+            }
+            if (activeFilters.endDate === "endCurrent") {
+                if (requestEndDate !== todayString) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     });
 
     currentPage = 1;
-
     displayPage();
+} 
+//old filter logic
 
-}
+// function filterByStatus(status) {
 
-function filterByEndDate(endDate) {
+//     filteredRequests = filteredRequests.filter(function(request) {
+//         return request.status === status;
+//     });
 
-    const today = new Date();
+//     currentPage = 1;
+//     displayPage();
+
+// }
+
+// function filterByEndDate(endDate) {
+
+//     const today = new Date();
     
-        // Create today's date as YYYY-MM-DD
-    const todayString =
-        today.getFullYear() + "-" +
-        String(today.getMonth() + 1).padStart(2, "0") + "-" +
-        String(today.getDate()).padStart(2, "0");
+//     const todayString =
+//         today.getFullYear() + "-" +
+//         String(today.getMonth() + 1).padStart(2, "0") + "-" +
+//         String(today.getDate()).padStart(2, "0");
 
-    filteredRequests = requests.filter(function(request) {
+//     filteredRequests = filteredRequests.filter(function(request) {
 
-        const requestEndDate = request.endDate
+//         const requestEndDate = request.endDate
 
-        if (endDate === "endBefore") {
-            return requestEndDate < todayString; 
-        } 
-        if (endDate === "endAfter") {
-            return requestEndDate > todayString; 
-        }
-        if (endDate === "endCurrent") {
-            return requestEndDate === todayString; 
-        }
-    }); 
-    currentPage = 1;
-    displayPage();
-}
+//         if (endDate === "endBefore") {
+//             return requestEndDate < todayString; 
+//         } 
+//         if (endDate === "endAfter") {
+//             return requestEndDate > todayString; 
+//         }
+//         if (endDate === "endCurrent") {
+//             return requestEndDate === todayString; 
+//         }
+//     }); 
+//     currentPage = 1;
+//     displayPage();
+// }
 
-function filterByStartDate(startDate) {
+// function filterByStartDate(startDate) {
 
-    const today = new Date();
+//     const today = new Date();
     
-        // Create today's date as YYYY-MM-DD
-    const todayString =
-        today.getFullYear() + "-" +
-        String(today.getMonth() + 1).padStart(2, "0") + "-" +
-        String(today.getDate()).padStart(2, "0");
+//     const todayString =
+//         today.getFullYear() + "-" +
+//         String(today.getMonth() + 1).padStart(2, "0") + "-" +
+//         String(today.getDate()).padStart(2, "0");
 
-    filteredRequests = requests.filter(function(request) {
+//     filteredRequests = filteredRequests.filter(function(request) {
 
-        const requestStartDate = request.startDate
+//         const requestStartDate = request.startDate
 
-        if (startDate === "startBefore") {
-            return requestStartDate < todayString; 
-        } 
-        if (startDate === "startAfter") {
-            return requestStartDate > todayString; 
-        }
-        if (startDate === "cstartCurrent") {
-            return requestStartDate === todayString; 
-        }
-    }); 
-    currentPage = 1;
-    displayPage();
-}
+//         if (startDate === "startBefore") {
+//             return requestStartDate < todayString; 
+//         } 
+//         if (startDate === "startAfter") {
+//             return requestStartDate > todayString; 
+//         }
+//         if (startDate === "startCurrent") {
+//             return requestStartDate === todayString; 
+//         }
+//     }); 
+//     currentPage = 1;
+//     displayPage();
+// }
 
-function filterByCost(cost) {
+// function filterByCost(cost) {
 
-    if (cost === "under") {
-        filteredRequests = requests.filter(function(request) {
-            return request.estimatedCost < 10000;
-        });
-    }
+//     if (cost === "under") {
+//         filteredRequests = filteredRequests.filter(function(request) {
+//             return request.estimatedCost < 10000;
+//         });
+//     }
 
-    if (cost === "over") {
-        filteredRequests = requests.filter(function(request) {
-            return request.estimatedCost >= 10000;
-        })
-    }
-    currentPage = 1;
-    displayPage();
-}
+//     if (cost === "over") {
+//         filteredRequests = filteredRequests.filter(function(request) {
+//             return request.estimatedCost >= 10000;
+//         })
+//     }
+//     currentPage = 1;
+//     displayPage();
+// }
 
 //reset filterbutton
 const resetButton = document.querySelector("#reset-button");
