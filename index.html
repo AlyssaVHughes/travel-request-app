@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="../CSS/side_menu.css">
     <link rel="stylesheet" href="../CSS/header.css">  
     <link rel="stylesheet" href="../CSS/dashboard.css">  
+    <link rel="stylesheet" href="../CSS/popup.css">  
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
     <script src="../JS/sampleData.js" defer></script>
     <script src="../JS/navigation.js" defer></script>
+    <script src="../JS/popup.js" defer></script>
     <script src="../JS/pages/dashboard.js" defer></script>
 
     <title>Travel Request App</title>
@@ -20,6 +22,36 @@
 <body>
 
     <div class="app"> 
+
+        <div class="signInArea" id="signInArea">
+            <div class="signInPopup"> 
+                <button id="closePopup" class="closePopup"> <img src="../images/icons/x_icon2.png"> </button>
+                <h1 class="popupHeader">Sign In</h1>
+                <h2 class="popupSubheader">Sign in to view and edit your travel requests and access personal analytics</h2>
+                <div class="popup-input-container">
+                    <img src="../Images/Icons/mail_icon.png" alt="Email" class="input-icon">
+                    <input
+                        type="text"
+                        class="popup-input"
+                        placeholder="Email">
+                </div>
+                <p class="signin-error">There is no account associated with this email</p>
+                <div class="popup-input-container">
+                    <img src="../Images/Icons/password_icon.png" alt="Email" class="input-icon">
+                    <input
+                        type="text"
+                        class="popup-input"
+                        placeholder="Password">
+                    <img src="../Images/Icons/hide_icon.png" alt="Email" class="input-icon-hide">
+                </div>
+                <p class="signin-error">Password must be less than 10 characters</p>
+                <p class="forgot-password">Forgot Password?</p>
+                <div class="popup-button-container">
+                    <button class="signIn-button">Sign In</button>
+                    <button class="createAccount-button">Create an Account</button>
+                </div>
+            </div>
+        </div>
 
         <div class="sidebar"> 
             <div class="sidebar-header"> 
@@ -43,8 +75,8 @@
                     <h1 class="app-name">PLACEHOLDER</h1>
                 </div>
 
-                <div class="signIn">
-                    <span class="user-name">User Name</span>
+                <div id="signInButton" class="signIn">
+                    <span class="user-name">Sign In</span>
                     <img src="../images/icons/profile_icon.png" alt="User Icon" class="user-icon">
                 </div>
 
@@ -56,8 +88,8 @@
                     
                     <div class="tab-area"> 
                         <div class="tab active"> <span class="tab-text">All Requests</span> </div>
-                        <div class="tab"> <span class="tab-text">Upcoming Requests</span> </div>
-                        <div class="tab"> <span class="tab-text">Past Requests</span> </div>
+                        <div class="tab"> <span class="tab-text">My Requests</span> </div>
+                        <div class="tab"> <span class="tab-text">Pending my Approval</span> </div>
                     </div>
 
 
