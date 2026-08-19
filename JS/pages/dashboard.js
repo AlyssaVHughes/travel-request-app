@@ -51,11 +51,15 @@ let activeFilters = {
     status: null, 
     startDate: null, 
     endDate: null, 
-    estimatedCost: null
+    estimatedCost: null,
+
+    myRequests: null,
+    pendingMyApproval: null
 };
 
 //filtering requests
 const statusFilter = document.querySelectorAll(".status-filter");
+const tabOrganization = document.querySelectorAll(".tab");
 
 const startDateTag = document.querySelector("#start-date-tag");
 const startDateTagText = document.querySelector("#start-date-tag-text")
@@ -68,6 +72,14 @@ const CostTagText = document.querySelector("#cost-tag-text")
 
 const StatusTag = document.querySelector("#status-tag");
 const StatusTagText = document.querySelector("#status-tag-text");
+
+//flagging this
+tabOrganization.forEach(function(tab) {
+    tab.addEventListener("click", function() {
+        console.log("clicked a tab");
+        applyFilter(filterType, filterValue);
+    })
+})
 
 statusFilter.forEach(function(option) {
 
@@ -198,6 +210,13 @@ function applyAllFilters() {
         String(today.getDate()).padStart(2, "0");
 
     filteredRequests = requests.filter(function(request) {
+
+        //my requests filter
+        if(activeFilters.myRequests !== null) {
+            if (request.requestor !== "my username") {
+                return false;
+            }
+        }
 
         // Status filter
         if (activeFilters.status !== null) {
@@ -367,6 +386,7 @@ resetButton.addEventListener("click", () => {
 
 //record pagination
 const tableBody = document.querySelector("#request-table-body");
+const pageNumber = document.querySelector("#page-number");
 
 const rowsPerPage = 8; 
 let currentPage = 1;
@@ -377,6 +397,8 @@ function displayPage() {
     tableBody.innerHTML = "";
 
     const totalPages = Math.ceil(filteredRequests.length / rowsPerPage);
+    //*
+    pageNumber.textContent = `${currentPage} of ${totalPages}`;
 
     const startIndex = (currentPage - 1) * rowsPerPage;
     const endIndex = startIndex + rowsPerPage;
@@ -419,9 +441,11 @@ displayPage();
 //change pages with buttons
 const previousButton = document.querySelector("#previous-page");
 const nextButton = document.querySelector("#next-page");
-const pageNumber = document.querySelector("#page-number");
 
 nextButton.addEventListener("click", () => {
+
+    const totalPages = Math.ceil(filteredRequests.length / rowsPerPage);
+    console.log("clicked next"); 
 
     if (currentPage < totalPages) {
         currentPage++;
@@ -432,6 +456,8 @@ nextButton.addEventListener("click", () => {
 });
 
 previousButton.addEventListener("click", () => {
+
+    console.log("clicked previous"); 
 
     if (currentPage > 1) {
         currentPage--;
