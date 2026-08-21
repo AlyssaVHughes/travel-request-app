@@ -53,9 +53,12 @@ let activeFilters = {
     endDate: null, 
     estimatedCost: null,
 
-    myRequests: null,
-    pendingMyApproval: null
+    tabOrganization: null, 
+
+    search: ""
 };
+
+const emptyTableNotice = document.querySelector("#empty-table");
 
 //filtering requests
 const statusFilter = document.querySelectorAll(".status-filter");
@@ -73,13 +76,16 @@ const CostTagText = document.querySelector("#cost-tag-text")
 const StatusTag = document.querySelector("#status-tag");
 const StatusTagText = document.querySelector("#status-tag-text");
 
-//flagging this
-tabOrganization.forEach(function(tab) {
-    tab.addEventListener("click", function() {
-        console.log("clicked a tab");
-        applyFilter(filterType, filterValue);
-    })
-})
+const searchInput = document.querySelector("#request-search");
+
+//searchfunction
+searchInput.addEventListener("input", function() {
+
+    activeFilters.search = searchInput.value;
+
+    applyAllFilters();
+
+});
 
 statusFilter.forEach(function(option) {
 
@@ -177,10 +183,34 @@ filterTags.forEach(function(tag) {
 
 });
 
+// statusFilter.forEach(function(option) {
+
+//     option.addEventListener("click", function() {
+
+//         const filterType = option.dataset.filter;
+//         const filterValue = option.dataset.value;
+
+//         applyFilter(filterType, filterValue);
+
+//flagging this
+tabOrganization.forEach(function(tab) {
+    tab.addEventListener("click", function() {
+
+        const filterType = tab.dataset.filter;
+        const filterValue = tab.dataset.value;
+
+        console.log("clicked a tab");
+        applyFilter(filterType, filterValue);
+    })
+})
+
 function applyFilter(filterType, filterValue) {
 //if its status, run the filter by status function and pass the value of the button (pending, approved, rejected) to it
 
     activeFilters[filterType] = filterValue;
+    console.log(filterType);
+    console.log(filterValue);
+    console.log(activeAccount)
 
     applyAllFilters();
 
@@ -211,11 +241,45 @@ function applyAllFilters() {
 
     filteredRequests = requests.filter(function(request) {
 
-        //my requests filter
-        if(activeFilters.myRequests !== null) {
-            if (request.requestor !== "my username") {
+        //if there is something in the search bar run this function
+        if (activeFilters.search !== "") {
+
+            const searchTerm = activeFilters.search.toLowerCase();
+        
+            if (
+                !request.requestID.toLowerCase().includes(searchTerm) &&
+                !request.requestor.toLowerCase().includes(searchTerm) &&
+                !request.approver.toLowerCase().includes(searchTerm) &&
+                !request.purposeForTravel.toLowerCase().includes(searchTerm) &&
+                !request.destination.toLowerCase().includes(searchTerm)
+            ) {
                 return false;
             }
+        }
+
+        //my requests filter
+        if(activeFilters.tabOrganization !== null) {
+
+            if (activeFilters.tabOrganization === "allRequests") {
+                    emptyTableNotice.style.display = "none";
+                    return true;
+            }
+            if (activeFilters.tabOrganization === "userRequests") {
+                if (activeAccount === null) {
+                    emptyTableNotice.style.display = "flex"
+                }
+                if (request.requestor !== activeAccount) {
+                    return false;
+                }
+            } 
+            if (activeFilters.tabOrganization === "userApproval") {
+                if (activeAccount === null) {
+                    emptyTableNotice.style.display = "flex"
+                }
+                if (request.approver !== activeAccount || request.status !== "Pending Approval") {
+                    return false;
+                }
+            } 
         }
 
         // Status filter
@@ -240,7 +304,7 @@ function applyAllFilters() {
                 }
             }
         }
-
+//start date
         if (activeFilters.startDate !== null) {
             const requestStartDate = request.startDate
 
@@ -261,7 +325,7 @@ function applyAllFilters() {
             }
 
         }
-
+//end date
         if (activeFilters.endDate !== null) {
             const requestEndDate = request.endDate
 
@@ -412,6 +476,7 @@ function displayPage() {
         row.innerHTML = `
             <td>${request.requestID}</td>
             <td>${request.requestor}</td>
+            <td>${request.approver}</td>
             <td>${request.destination}</td>
             <td>${request.startDate}</td>
             <td>${request.endDate}</td>

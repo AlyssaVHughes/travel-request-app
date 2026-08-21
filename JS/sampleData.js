@@ -2,6 +2,7 @@ const requests = [
     {
     requestID: "TR-001",
     requestor: "John Doe",
+    approver: "Alyssa Hughes",
     destination: "New York, USA",
     startDate: "2026-12-24",
     endDate: "2026-12-29",
@@ -14,6 +15,7 @@ const requests = [
     {
     requestID: "TR-002",
     requestor: "Jane Smith",
+    approver: "John Doe",
     destination: "Tokyo, Japan",
     startDate: "2026-11-15",
     endDate: "2026-11-16",
@@ -26,6 +28,7 @@ const requests = [
     {
     requestID: "TR-003",
     requestor: "Michael Johnson",
+    approver: "Alyssa Hughes",
     destination: "Berlin, Germany",
     startDate: "2026-05-19",
     endDate: "2026-05-20",
@@ -38,6 +41,7 @@ const requests = [
     {
     requestID: "TR-004",
     requestor: "Emily Davis",
+    approver: "John Doe",
     destination: "Sydney, Australia",
     startDate: "2026-06-21",
     endDate: "2026-06-25",
@@ -50,6 +54,7 @@ const requests = [
     {
     requestID: "TR-005",
     requestor: "David Wilson",
+    approver: "Alyssa Hughes",
     destination: "Paris, France",
     startDate: "2026-08-06",
     endDate: "2026-08-14",
@@ -62,6 +67,7 @@ const requests = [
     {
     requestID: "TR-006",
     requestor: "Sarah Lee",
+    approver: "John Doe",
     destination: "Rome, Italy",
     startDate: "2026-08-14",
     endDate: "2026-08-19",
@@ -74,6 +80,7 @@ const requests = [
     {
     requestID: "TR-007",
     requestor: "Chris Brown",
+    approver: "Alyssa Hughes",
     destination: "Barcelona, Spain",
     startDate: "2026-10-10",
     endDate: "2026-10-17",
@@ -86,6 +93,7 @@ const requests = [
     {
     requestID: "TR-008",
     requestor: "Olivia Martinez",
+    approver: "John Doe",
     destination: "Cape Town, South Africa",
     startDate: "2026-07-25",
     endDate: "2026-07-28",
@@ -98,6 +106,7 @@ const requests = [
     {
     requestID: "TR-009",
     requestor: "Daniel Anderson",
+    approver: "Alyssa Hughes",
     destination: "Rio de Janeiro, Brazil",
     startDate: "2026-08-14",
     endDate: "2026-08-16",
@@ -110,6 +119,7 @@ const requests = [
     {
     requestID: "TR-010",
     requestor: "Sophia Taylor",
+    approver: "John Doe",
     destination: "Dubai, UAE",
     startDate: "2026-08-07",
     endDate: "2026-08-14",
@@ -122,6 +132,7 @@ const requests = [
     {
     requestID: "TR-011",
     requestor: "William Harris",
+    approver: "Alyssa Hughes",
     destination: "Singapore",
     startDate: "2026-08-14",
     endDate: "2026-08-23",
@@ -134,6 +145,7 @@ const requests = [
     {
     requestID: "TR-012",
     requestor: "Ava Clark",
+    approver: "John Doe",
     destination: "Bangkok, Thailand",
     startDate: "2026-09-15",
     endDate: "2026-09-20",
@@ -146,6 +158,7 @@ const requests = [
     {
     requestID: "TR-013",
     requestor: "James Lewis",
+    approver: "John Doe",
     destination: "Istanbul, Turkey",
     startDate: "2026-08-25",
     endDate: "2026-08-85",
@@ -158,6 +171,7 @@ const requests = [
     {
     requestID: "TR-014",
     requestor: "Mia Walker",
+    approver: "Alyssa Hughes",
     destination: "Lisbon, Portugal",
     startDate: "2026-08-05",
     endDate: "2026-08-14",
@@ -170,6 +184,7 @@ const requests = [
     {
     requestID: "TR-015",
     requestor: "Liam Hall",
+    approver: "John Doe",
     destination: "Vienna, Austria",
     startDate: "2026-08-14",
     endDate: "2026-08-25",

@@ -208,15 +208,16 @@
 }
 
 .tab { 
+    border: none;
     border-radius: 10px 10px 0px 0px;
-    height: 25px;
+    height: 33px;
     background:linear-gradient(
         35deg,
         #C2E5FF,
         #E9F8FF
       );
     color: #4A8CC1;
-    padding: 7px 25px 7px 25px;
+    padding: 10px 28px 10px 28px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -496,4 +497,18 @@
 #status-tag:hover{ 
     background-color: #c8deff;
     cursor: pointer;
+}
+
+.empty-table { 
+    display: none; 
+    justify-content: center;
+}
+
+.empty-notice {
+    font-size: 16px;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color:rgb(153, 153, 153);
+    padding: 29px 0px 29px 0px;
 }
