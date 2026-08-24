@@ -73,11 +73,11 @@
                 <img src="../images/icons/close_icon.png" alt="Logo" class="sidebar-logo">
             </div>
 
-            <button class="sidebar-button active"> <img src="../images/icons/quickview_icon.png" class= button-icon-inactive> <span class="button-text">Home</span></button>
-            <button class="sidebar-button"> <img src="../images/icons/new_icon.png" class= button-icon-inactive> <span class="button-text">New Request</span></button>
-            <button class="sidebar-button"> <img src="../images/icons/dashboard_icon.png" class= button-icon-inactive> <span class="button-text">Request Dashboard</span></button>
-            <button class="sidebar-button"> <img src="../images/icons/approval_icon.png" class= button-icon-inactive> <span class="button-text">Approvals</span> <div class="approval-notif"> 2 </div></button>
-            <button class="sidebar-button"> <img src="../images/icons/budget_icon.png" class= button-icon-inactive><span class="button-text">My Budget</span></button>
+            <button id="home-nav" data-page="home-section" class="sidebar-button active"> <img src="../images/icons/quickview_icon.png" class= button-icon-inactive> <span class="button-text">Home</span></button>
+            <button id="new-nav" data-page="new-section" class="sidebar-button"> <img src="../images/icons/new_icon.png" class= button-icon-inactive> <span class="button-text">New Request</span></button>
+            <button id="dash-nav" data-page="dashboard-section" class="sidebar-button"> <img src="../images/icons/dashboard_icon.png" class= button-icon-inactive> <span class="button-text">Request Dashboard</span></button>
+            <button id="approval-nav" data-page="approval-section" class="sidebar-button"> <img src="../images/icons/approval_icon.png" class= button-icon-inactive> <span class="button-text">Approvals</span> <div class="approval-notif"> 2 </div></button>
+            <button id="budget-nav" data-page="budget-section" class="sidebar-button"> <img src="../images/icons/budget_icon.png" class= button-icon-inactive><span class="button-text">My Budget</span></button>
 
         </div>
 
@@ -97,7 +97,7 @@
 
             </div>
 
-            <div class="dashboard-area"> 
+            <div id="dashboard-section" class="page-section"> 
 
                 <div class="dashboard-header"> 
                     
@@ -258,6 +258,10 @@
 
                 </div>
 
+            </div>
+
+            <div id="new-section" class="page-section">
+                <h1>NEW SECTION</h1>
             </div>
 
         </div>

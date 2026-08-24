@@ -9,6 +9,10 @@ buttons.forEach(button => {
         // Add active class to clicked button
         button.classList.add("active");
 
+        const pageID = button.dataset.page;
+
+        showPage(pageID);
+
     });
 });
 
@@ -30,3 +34,17 @@ toggleBtn.addEventListener("click", () => {
         toggleBtn.src = "../Images/Icons/close_icon.png";
     }
 });
+
+//screen changes
+function showPage(pageID) {
+
+    const pages = document.querySelectorAll(".page-section");
+
+    pages.forEach(function(page) {
+        page.style.display = "none";
+    });
+
+    const selectedPage = document.querySelector("#" + pageID);
+
+    selectedPage.style.display = "block";
+}
