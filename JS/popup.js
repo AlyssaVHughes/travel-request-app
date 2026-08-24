@@ -96,6 +96,7 @@ function signInData() {
             popupArea.style.display = "none";
             updateSignInButton();
             applyAllFilters();
+            emptyTableNotice.style.display = "none";
             return;
         };
 

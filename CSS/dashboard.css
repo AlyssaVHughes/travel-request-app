@@ -1,4 +1,4 @@
-.dashboard-area{ 
+.page-section{ 
     background : linear-gradient(
         45deg,
         #EFF6FB,
@@ -500,6 +500,7 @@
 }
 
 .empty-table { 
+    /* border-top: .5px solid #e7e7e7; */
     display: none; 
     justify-content: center;
 }
