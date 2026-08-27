@@ -26,3 +26,20 @@ body{
     gap: 20px;
 }
 
+.section-header { 
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    color: #5d98f1;
+    margin: 0px;
+}
+
+.section-subheader { 
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #535353;
+    margin-top: 7px;
+    letter-spacing: .03rem
+}
+

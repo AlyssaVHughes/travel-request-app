@@ -47,4 +47,16 @@ function showPage(pageID) {
     const selectedPage = document.querySelector("#" + pageID);
 
     selectedPage.style.display = "block";
+
+    //reset the form when you click off the screen
+    
+    if (pageID !== "new-section") {
+    resetForm();
+    resetHighlight()
+    }
+    if (pageID === "dashboard-section") {
+    applyAllFilters()
+    }
 }
+
+showPage("home-section");
