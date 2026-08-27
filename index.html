@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="../CSS/app.css">
     <link rel="stylesheet" href="../CSS/side_menu.css">
     <link rel="stylesheet" href="../CSS/header.css">  
-    <link rel="stylesheet" href="../CSS/dashboard.css">  
+    <link rel="stylesheet" href="../CSS/dashboard.css"> 
+    <link rel="stylesheet" href="../CSS/new_request.css">  
+    <link rel="stylesheet" href="../CSS/approval.css">  
     <link rel="stylesheet" href="../CSS/popup.css">  
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +19,7 @@
     <script src="../JS/navigation.js" defer></script>
     <script src="../JS/popup.js" defer></script>
     <script src="../JS/pages/dashboard.js" defer></script>
+    <script src="../JS/pages/newRequest.js" defer></script> 
 
     <title>Travel Request App</title>
 </head>
@@ -261,7 +264,126 @@
             </div>
 
             <div id="new-section" class="page-section">
-                <h1>NEW SECTION</h1>
+
+                <div class="form-header">
+                    <div class= "status-label"> 
+                        <img class="status-marker" src="../Images/Icons/yellow_status.png"> 
+                        <h1 class="status-text">Status: New Request</h1>
+                    </div>
+
+                    <h2 class="request-name">Filler-Request-name</h2>
+                </div> 
+
+                <div class="form">
+
+                    <!-- Requestor -->
+                    <div class="input-field">
+                        <label class="question" for="requestor">Requestor</label>
+                        <input 
+                            class="form-input"
+                            type="text" 
+                            id="requestor" 
+                            name="requestor"
+                            placeholder="Enter requestor name"
+                        >
+                    </div>
+                
+                    <!-- Approver -->
+                    <div class="input-field">
+                        <label class="question" for="approver">Approver</label>
+                        <select id="approver" name="approver" class="form-input">
+                            <option value="" disabled selected>Select an approver</option>
+                            <option value="manager1">Manager 1</option>
+                            <option value="manager2">Manager 2</option>
+                            <option value="manager3">Manager 3</option>
+                        </select>
+                    </div>
+                
+                    <!-- Destination -->
+                    <div class="input-field">
+                        <label class="question" for="destination">Destination</label>
+                        <input 
+                            class="form-input"
+                            type="text" 
+                            id="destination" 
+                            name="destination"
+                            placeholder="City, State/Country"
+                        >
+                    </div>
+                
+                    <!-- Start Date -->
+                    <div class="input-field">
+                        <label class="question" for="start-date">Start Date</label>
+                        <input 
+                            class="form-input"
+                            type="date" 
+                            id="start-date" 
+                            name="startDate"
+                        >
+                    </div>
+                
+                    <!-- End Date -->
+                    <div class="input-field">
+                        <label class="question" for="end-date">End Date</label>
+                        <input 
+                            class="form-input"
+                            type="date" 
+                            id="end-date" 
+                            name="endDate"
+                        >
+                    </div>
+                
+                    <!-- Estimated Cost -->
+                    <div class="input-field">
+                        <label class="question" for="estimated-cost">Estimated Cost</label>
+                        <input 
+                            class="form-input"
+                            type="number" 
+                            id="estimated-cost" 
+                            name="estimatedCost"
+                            placeholder="0.00"
+                            min="0"
+                            step="0.01"
+                        >
+                    </div>
+                
+                    <!-- Purpose of Travel -->
+                    <div class="input-field">
+                        <label class="question" for="purpose-of-travel">Purpose of Travel</label>
+                        <textarea 
+                            class="form-input-area"
+                            id="purpose-of-travel" 
+                            name="purposeOfTravel"
+                            placeholder="Describe the purpose of your travel..."
+                            rows="4"
+                        ></textarea>
+                    </div>
+                
+                </div>
+
+                <div class="form-footer"> 
+                    <button id="save-form" class="save-form">Save</button>
+                    <button id="submit-form" class="submit-form">Submit</button>
+                </div>
+                
+            </div>
+
+            <div id="approval-section" class="page-section"> 
+                <h1 class="section-header">My Assigned Requests</h1>
+                <h2 class="section-subheader">Approve travel requests assigned to you</h2>
+                <div class="approval-area"> 
+
+                </div>
+            </div>
+
+            <div id="home-section" class="page-section"> 
+                <h1 class="section-header">Quick Look</h1>
+                <h2 class="section-subheader">Stay on top of your tasks, track activity, and monitor spending</h2>
+            </div>
+
+            <div id="budget-section" class="page-section"> 
+                <h1 class="section-header">My 2026 Budget</h1>
+                <h2 class="section-subheader">Manage and track your annual travel expense budget</h2>
             </div>
 
         </div>

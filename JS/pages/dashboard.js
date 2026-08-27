@@ -214,21 +214,6 @@ function applyFilter(filterType, filterValue) {
 
     applyAllFilters();
 
-    //old applyfilterlogic
-
-    // if (filterType === "status") {
-    //     filterByStatus(filterValue);
-    // }
-    // if (filterType === "endDate") {
-    //     filterByEndDate(filterValue);
-    // }
-    // if (filterType === "startDate") {
-    //     filterByStartDate(filterValue);
-    // }
-    // if (filterType === "estimatedCost") {
-    //     filterByCost(filterValue);
-    // }
-
 }
 
 function applyAllFilters() {
